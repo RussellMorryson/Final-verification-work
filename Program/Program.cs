@@ -29,12 +29,7 @@ string[] SamplingFromAnArray(string[] array)
             arr[count] = "-";
         }
     }
-
-    // Удаление последнего элемента массива поскольку он пуст
-    if (arr[count] == "-")
-    {
-        Array.Resize(ref arr, arr.Length - 1);
-    }
+    Array.Resize(ref arr, arr.Length - 1); // Удаление последнего элемента массива поскольку он пуст
     return arr;
 }
 
