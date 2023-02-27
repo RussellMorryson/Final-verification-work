@@ -1,7 +1,4 @@
-﻿
-
-
-// Метод для заполнения первичного массива строками
+﻿// Метод для заполнения первичного массива строками
 string[] CreateCompletionArray(int n)
 {
     string[] array = new string[n]; // Инициализация основного массива
@@ -22,7 +19,7 @@ string[] SamplingFromAnArray(string[] array)
     string[] arr = new string[1]; // Инициализация массива для хранения строк длиной не более 3 символов
 
     // Выборка элементов из основного массива
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
@@ -38,6 +35,7 @@ string[] SamplingFromAnArray(string[] array)
     {
         Array.Resize(ref arr, arr.Length - 1);
     }
+    return arr;
 }
 
 // Метод для вывода элементов массива
@@ -56,15 +54,28 @@ void PrintArray(string[] a)
         }
     }
     Console.Write("]");
+    Console.WriteLine();
 }
 
 
-
 // Основной блок программы
-
-Console.WriteLine("Программа для выборки из массива строк, строк длиной не более 3 символов");
+//===============================================================================================//
+Console.WriteLine("Программа для выборки из массива строк, строк длиной не более 3-х символов");
 int n = 4; // Количество элементов по умолчанию
-//int n = Convert.ToInt32(Comsole.ReadLine()); // 2 вариант для указания количества элементов массива
+
+/*
+//2 вариант для указания количества элементов массива
+Console.Write("Введите количество строк основного массива: );
+n = Convert.ToInt32(Comsole.ReadLine()); 
+*/
+
+string [] MainArray = CreateCompletionArray(n); // Формирвоание основного массива
+Console.Write($"Основной массив: ");
+    PrintArray(MainArray);
+
+string [] SelectionArray = SamplingFromAnArray(MainArray); // Формирование массива с выборкой
+Console.Write($"Массив со строками не более 3-х символов: ");
+    PrintArray(SelectionArray);
 
 
 
